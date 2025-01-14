@@ -2,8 +2,8 @@ const baseUrl = "https://rickandmortyapi.com/api/character"
 
 const container = document.querySelector('.cardsBox')
 
-function getCharacters() {
-    fetch(baseUrl)
+function getCharacters(url) {
+    fetch(url)
         .then(response => response.json())
         .then(data => {
             renderCards(data.results)
@@ -11,7 +11,7 @@ function getCharacters() {
         })
 }
 
-getCharacters()
+getCharacters(baseUrl)
 
 function renderCards(data) {
     container.innerHTML = ''
@@ -43,6 +43,12 @@ function renderPagination(info) {
     <li class="page-item"><a class="page-link" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">4</a></li>
+    <li class="page-item"><a class="page-link" href="#">5</a></li>
+    <li class="page-item"><a class="page-link" href="#">6</a></li>
+    <li class="page-item"><a class="page-link" href="#">7</a></li>
+
+
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
@@ -50,4 +56,22 @@ function renderPagination(info) {
     </li>
   </ul>
 </nav>`
+
+const paginationBlock = document.querySelector(".pagination")
+
+console.log(paginationBlock)
+
+paginationBlock.addEventListener("click", (event) => {
+  if(event.target.closest("li")) {
+    console.log(event.target)
+    pagination(event.target)
+  }
+})
+
+}
+
+function pagination(li) {
+  let liUrl = `https://rickandmortyapi.com/api/character?page=${li.innerHTML}`
+
+  getCharacters(liUrl)
 }
