@@ -1,1 +1,1 @@
-# 19-Rick-and-Morty-
+# rickAndMortyApp
