@@ -38,16 +38,47 @@
 </header>
 
 <main class="main d-flex flex-column justify-content-center pt-5">
+  <div class="filterBox d-flex justify-content-center gap-5">
+     <h1 class="display-5">Filters: </h1>
+     <div class="form-floating  d-flex justify-content-center">
+        <input placeholder="Name of locations" type="text" class="loc-name text-center">
+      </div>
+      <div class="form-floating">
+          
+      </div>
+      <button type="button" class="btnFilter btn btn-primary btn">Search by filter</button>
 
+  </div>
   <div class="cardsBox d-flex flex-wrap justify-content-center gap-5 ">
 
   </div>
-
+     
   <div class="paginationBox d-flex justify-content-center m-5">
-
+     <nav aria-label="Page navigation example">
+        <ul class="pagination">
+           
+        </ul>
+     </nav>
   </div>
-  
 </main>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
