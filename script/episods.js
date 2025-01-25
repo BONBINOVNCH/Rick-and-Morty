@@ -26,12 +26,17 @@ function renderCards(data) {
         <h5 class="card-title">${cardData.name}</h5>
         <h6 class="card-text">${cardData.episode}</h6>
         <p class="card-text">${cardData.air_date}</p>
-        <a href="#" class="btn btn-primary">Details</a>
+        <button type="button" class="btn btn-primary" id="btnAdd" data-name="${cardData.name}" data-episode="${cardData.episode}">Add</button>
       </div>
     </div>
         `
     });
+
+    addToWatchList() 
+
 }
+
+
 
 let currentPage = 1;
 function renderPagination(info){
@@ -89,22 +94,21 @@ btnFilter.addEventListener('click', () => {
    
 })
 
-const exampleModal = document.getElementById('exampleModal')
-if (exampleModal) {
-   exampleModal.addEventListener('show.bs.modal', event => {
-      const button = event.relatedTarget
-      const modalTitle = exampleModal.querySelector('.modal-title')
-      const id = button.getAttribute('data-bs-whatever')
-
-      
-      fetch(`${baseUrl}/${id}`)
-         .then(response => response.json())
-         .then(data => {
-            console.log(data);
-         })
-
-
-      modalTitle.textContent = `Info about ${id}`
-
+function addToWatchList() {
+   const btnAdds = document.querySelectorAll("#btnAdd")
+   console.log(btnAdds)
+   btnAdds.forEach(btnAdd => {
+      btnAdd.addEventListener("click", () => {
+      const name = btnAdd.getAttribute("data-name")
+      const episode = btnAdd.getAttribute("data-episode")
+      console.log(name)
+      const obj = {
+         name: name,
+         episode: episode,
+         watched: false
+      }
+      localStorage.setItem('name', JSON.stringify(obj))
    })
+   })
+   
 }
