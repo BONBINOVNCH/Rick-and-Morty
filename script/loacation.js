@@ -24,7 +24,8 @@ function renderCards(data) {
         <h5 class="card-title">${cardData.name}</h5>
         <h6 class="card-text">${cardData.type}</h6>
         <p class="card-text">${cardData.dimension}</p>
-        <a href="#" class="btn btn-primary">Details</a>
+         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="${cardData.id}">Details</button>
+         </div>
       </div>
     </div>
         `
@@ -85,22 +86,42 @@ btnFilter.addEventListener('click', () => {
    
 })
 
+
 const exampleModal = document.getElementById('exampleModal')
 if (exampleModal) {
    exampleModal.addEventListener('show.bs.modal', event => {
       const button = event.relatedTarget
       const modalTitle = exampleModal.querySelector('.modal-title')
       const id = button.getAttribute('data-bs-whatever')
+      const modalBody = document.querySelector('.modal-body')
 
       
       fetch(`${baseUrl}/${id}`)
          .then(response => response.json())
          .then(data => {
             console.log(data);
+            modalBody.innerHTML = ``
+            modalBody.innerHTML = `
+             <div class="boxImg">
+               <img src="${data.image}" alt="">
+            </div>
+
+        <div class="boxInfo">
+          <p>Name: ${data.name}</p>
+          <p>Type: ${data.type}</p>
+          <p>Dimension: ${data.gender}</p>
+
+          <p></p>
+        </div>
+            `
+
+            modalTitle.textContent = `Info about ${data.name}`
          })
 
 
-      modalTitle.textContent = `Info about ${id}`
+      
 
    })
 }
+
+

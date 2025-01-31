@@ -28,7 +28,7 @@ function renderCards(data) {
          <div class="card-body">
             <h5 class="card-title">${cardData.name}</h5>
             <p class="card-text">${cardData.species}</p>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="${cardData.id}">Details</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="${cardData.id}">Details</button>
          </div>
          </div>
       `;
@@ -105,6 +105,7 @@ if (exampleModal) {
          .then(response => response.json())
          .then(data => {
             console.log(data);
+
             modalBody.innerHTML = ``
             modalBody.innerHTML = `
              <div class="boxImg">
@@ -118,10 +119,26 @@ if (exampleModal) {
           <p>Stauts: ${data.status}</p>
           <p>Origion: ${data.origin.name}</p>
           <p>Location: ${data.location.name}</p>
-          <p>Location: ${data.location.name}</p>
-          <p></p>
+            <span>Episods: </span><select class="boxInfoForm">
+
+            </select>
+          
         </div>
             `
+            const box = document.querySelector(".boxInfoForm")
+            const episodes = data.episode
+            for (let i = 0; i <= episodes.length - 1; i++) {
+               console.log(i)
+               fetch(`${episodes[i]}`)
+         .then(response => response.json())
+         .then(data => {
+            console.log(data.episode);
+            box.innerHTML += `
+            <option value="${data.episode}">${data.episode}</option>
+            `
+         })
+               
+            }
 
             modalTitle.textContent = `Info about ${data.name}`
          })

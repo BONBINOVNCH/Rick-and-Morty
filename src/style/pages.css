@@ -1,0 +1,79 @@
+body{
+    background-color: #0A0326;
+    font-family: "Montserrat";
+}
+
+.bg-body-tertiary {
+    background-color: #0A0326 !important;
+}
+.navbar-brand{
+    color: white;
+    font-weight: bold;
+}
+.navbar-brand:hover{
+    color: greenyellow;
+}
+.nav-item a{
+    color: white;
+}
+.nav-item a:hover{
+    color: rgb(183, 181, 181);
+}
+.card{
+    background-color: #170b46;
+    color: white;
+}
+.display-5{
+    color: white;
+    margin: 0;
+}
+.form-select{
+    background-color: greenyellow;
+    color: rgb(61, 61, 61);
+    font-weight: bold;
+}
+.form-select option {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: #170b46;
+}
+.form-select option:hover {
+    color: rgb(61, 61, 61);
+    background-color: greenyellow;
+    height: 100%;
+}
+.btn{
+    background-color: #170b46;
+    color: white;
+    border: 2px greenyellow solid;
+}
+.btn:hover{
+    background-color: greenyellow;
+    color: rgb(61, 61, 61);
+    font-weight: bold;
+    border: 2px greenyellow solid;
+}
+.filterBox {
+    margin-bottom: 10px;
+}
+
+.page-link{
+    background-color: #170b46;
+    border: 2px greenyellow solid;
+    color: white;
+}
+.page-link:hover{
+    background-color: greenyellow;
+    color: rgb(61, 61, 61);
+    font-weight: bold;
+    border: 2px greenyellow solid;
+}
+.prevPage.disabled {
+    background-color: #170b46 !important;
+}
+input{
+    background-color: #170b46;
+    border: 2px greenyellow solid;
+    color: white;
+    border-radius: 5px;
+}
