@@ -18,16 +18,16 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                <ul class="navbar-nav">
                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="./character.html">Characters</a>
+                  <a class="nav-link" href="./character.html">Characters</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="./episode.html">Episodes</a>
+                  <a class="nav-link active" aria-current="page" href="./episode.html">Episodes</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="./location.html">Location</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="./">Watchlist</a>
+                  <a class="nav-link" href="./watchlist.html">Watchlist</a>
                </li>
                </ul>
             </div>
@@ -37,32 +37,33 @@
    </header>
 
    <main class="main d-flex flex-column justify-content-center pt-5">
-      
       <div class="filtersBox d-flex justify-content-center gap-5">
          <h1 class="display-5">Filters: </h1>
-         <div class="form-floating">
-            <select class="form-select" id="selectGender" aria-label="Floating label select example">
-               <option selected> </option>
-               <option value="Female">Female</option>
-               <option value="Male">Male</option>
-               <option value="Genderless">Genderless</option>
-               <option value="unknown">unknown</option>
-            </select>
-            <label for="floatingSelect">Gender</label>
-         </div>
-         <div class="form-floating">
-            <select class="form-select" id="selectStatus" aria-label="Floating label select example">
-               <option selected> </option>
-               <option value="Alive">Alive</option>
-               <option value="Dead">Dead</option>
-               <option value="unknown">unknown</option>
-            </select>
-            <label for="floatingSelect">Status</label>
-         </div>
+         <form class="row g-2">
+            <div class="col-auto form-floating mb-3">
+               
+                  <input type="email" class="form-control" id="floatingInput" placeholder="S01E01">
+                  <label for="floatingInput">Episode</label>
+            </div>
+            </form>
          <button type="button" class="btn btn-primary btnFilter">Search by filter</button>
       </div>
-      <div class="cardsBox d-flex flex-wrap justify-content-center gap-5 ">
-
+      
+      <div class="boxWithTable w-75 m-auto">
+         <table class="table table-bordered table-striped table-hover">
+            <thead>
+               <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Air Date</th>
+                  <th scope="col">Episode</th>
+                  <th scope="col">Add to watchlist</th>
+               </tr>
+            </thead>
+            <tbody class="tbody ">
+               
+            </tbody>
+         </table>
       </div>
          
       <div class="paginationBox d-flex justify-content-center m-5">
@@ -74,24 +75,8 @@
       </div>
    </main>
 
-   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-         <div class="modal-content">
-            <div class="modal-header">
-               <h1 class="modal-title fs-5" id="exampleModalLabel">Info </h1>
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex justify-content-evenly">
-            
-            </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-         </div>
-      </div>
-   </div>
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-   <script src="./../script/character.js"></script>
+   <script src="./../script/episode.js"></script>
 </body>
 </html>
