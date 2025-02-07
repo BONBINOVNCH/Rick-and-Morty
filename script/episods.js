@@ -26,7 +26,7 @@ function renderCards(data) {
         <h5 class="card-title">${cardData.name}</h5>
         <h6 class="card-text">${cardData.episode}</h6>
         <p class="card-text">${cardData.air_date}</p>
-        <button type="button" class="btn btn-primary" id="btnAdd" data-name="${cardData.name}" data-episode="${cardData.episode}">Add</button>
+        <button type="button" class="btn btn-primary btnAdd" id="" data-name="${cardData.name}" data-episode="${cardData.episode}">Add</button>
       </div>
     </div>
         `
@@ -95,20 +95,35 @@ btnFilter.addEventListener('click', () => {
 })
 
 function addToWatchList() {
-   const btnAdds = document.querySelectorAll("#btnAdd")
+   const btnAdds = document.querySelectorAll(".btnAdd")
    console.log(btnAdds)
    btnAdds.forEach(btnAdd => {
       btnAdd.addEventListener("click", () => {
       const name = btnAdd.getAttribute("data-name")
       const episode = btnAdd.getAttribute("data-episode")
       console.log(name)
-      const obj = {
-         name: name,
-         episode: episode,
-         watched: false
+
+         let watchlist = JSON.parse(localStorage.getItem("watchlist")) || []
+
+      const episodeObj = {
+            name: name,
+            episode: episode,
+            watched: false,
+            addDate: new Date().toISOString()
+         }
+
+      const isAlreadyAdded = watchlist.some(item => item.name === name && item.episode === episode)
+      console.log(watchlist)
+
+      console.log(isAlreadyAdded)
+
+      if (!isAlreadyAdded) {
+         watchlist.push(episodeObj);
+         localStorage.setItem('watchlist', JSON.stringify(watchlist))
       }
-      localStorage.setItem('name', JSON.stringify(obj))
+
    })
    })
    
 }
+  

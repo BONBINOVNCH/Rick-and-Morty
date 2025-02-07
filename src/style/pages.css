@@ -77,3 +77,10 @@ input{
     color: white;
     border-radius: 5px;
 }
+tbody tr{
+    
+    color: #b31c1c;
+}
+td, th{background-color: #170b46 !important;
+    color: #ffffff !important
+}
