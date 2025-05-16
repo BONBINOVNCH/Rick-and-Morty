@@ -109,7 +109,7 @@ if (exampleModal) {
         <div class="boxInfo">
           <p>Name: ${data.name}</p>
           <p>Type: ${data.type}</p>
-          <p>Dimension: ${data.dimension}</p>
+          <p>Dimension: ${data.gender}</p>
 
           <p></p>
         </div>
